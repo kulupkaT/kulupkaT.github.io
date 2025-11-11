@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аллергия на Флис</title>
+    <style>
+        /* Стили для всего сайта */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Тёмный фон для атмосферности */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Контейнер для всего контента */
+        .comic-container {
+            max-width: 1000px; /* Ограничение по ширине */
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Заголовок комикса */
+        .comic-title {
+            margin: 20px 0;
+            font-size: 2.5em;
+            color: #ff6b00; /* Яркий цвет для названия */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Область с страницей комикса */
+        .comic-page-container {
+            margin: 20px 0;
+            cursor: pointer; /* Меняем курсор, показывая что можно кликнуть */
+            transition: transform 0.2s; /* Плавный эффект при наведении */
+        }
+
+        .comic-page-container:hover {
+            transform: scale(1.01); /* Лёгкое увеличение при наведении */
+        }
+
+        /* Сама картинка страницы */
+        .comic-page {
+            max-width: 100%; /* Чтобы картинка не выходила за экран */
+            height: auto; /* Сохраняем пропорции */
+            box-shadow: 0 0 20px rgba(0,0,0,0.7); /* Тень для объёма */
+            border-radius: 4px; /* Слегка скругляем углы */
+        }
+
+        /* Блок с информацией внизу */
+        .comic-info {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #2a2a2a; /* Тёмный фон для контраста */
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        /* Стили для текста информации */
+        .author-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff6b00;
+        }
+    </style>
+</head>
+<body>
+    <div class="comic-container">
+        <!-- Заголовок комикса -->
+        <h1 class="comic-title">Аллергия на Флис</h1>
+        
+        <!-- Область с страницей -->
+        <div class="comic-page-container" id="comicPage">
+            <!-- Картинка будет меняться через JavaScript -->
+            <img src="page1.jpg" alt="Страница 1" class="comic-page" id="currentPage">
+        </div>
+        
+        <!-- Информация внизу -->
+        <div class="comic-info">
+            <p>Автор: <span class="author-name">GooGooJooK</span></p>
+            <p>Мой телеграмм канал с инфой: https://t.me/GooGooJok </p>
+        </div>
+    </div>
+
+    <script>
+        // Массив с путями к вашим страницам
+        // ЗАМЕНИТЕ эти примеры на реальные пути к вашим файлам!
+        const comicPages = [
+            "images/co.png",
+            "images/1.png", 
+            "images/2.png",
+            "images/3.png"
+            "images/4.png"
+            "images/5.png"
+            "images/6.png"
+            "images/7.png"
+            "images/8.png"
+            "images/9.png"
+            "images/10.png"
+            "images/11.png"
+            "images/12.png"
+            "images/13.png"
+            "images/14.png"
+            "images/15.png"
+            "images/16.png"
+            "images/17.png"
+            "images/18.png"
+            "images/19.png"
+            "images/20.png"
+            "images/21.png"
+            "images/22.png"
+            "images/23.png"
+            "images/24.png"
+            "images/25.png"
+            "images/26.png"
+            "images/27.png"
+          //  "images/28.png"
+          //  "images/29.png"
+          //  "images/30.png"
+           // "images/31.png"
+          //  "images/32.png"
+          //  "images/33.png"
+         //   "images/34.png"
+          //  "images/35.png"
+         //   "images/36.png"
+          //  "images/37.png"
+        //    "images/38.png"
+        //    "images/39.png"
+         //   "images/40.png"
+        //    "images/41.png"
+        //    "images/42.png"
+       //     "images/43.png"
+        //    "images/44.png"
+        //    "images/45.png"
+            // Добавьте столько страниц, сколько нужно
+        ];
+
+        let currentPageIndex = 0;
+        const comicPageElement = document.getElementById('currentPage');
+        const comicPageContainer = document.getElementById('comicPage');
+
+        // Функция для перелистывания страницы
+        function nextPage() {
+            if (currentPageIndex < comicPages.length - 1) {
+                currentPageIndex++;
+                comicPageElement.src = comicPages[currentPageIndex];
+                comicPageElement.alt = `Страница ${currentPageIndex + 1}`;
+            } else {
+                // Если это последняя страница - можно вернуть на первую или оставить
+                // currentPageIndex = 0; // Раскомментируйте, если хотите цикл
+                // comicPageElement.src = comicPages[currentPageIndex];
+                alert("Это последняя страница!");
+            }
+        }
+
+        // Вешаем обработчик клика на контейнер с комиксом
+        comicPageContainer.addEventListener('click', nextPage);
+
+        // Добавляем поддержку клавиш (опционально)
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'ArrowRight') {
+                nextPage();
+            }
+        });
+    </script>
+</body>
+</html>
